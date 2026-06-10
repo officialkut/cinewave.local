@@ -1,0 +1,62 @@
+body {
+    background: #101110;
+
+}
+
+a {
+    color: #adadad;
+    text-decoration: none
+}
+
+a:hover {
+    text-shadow: #ff0000 1px 0 10px;
+}
+
+p {
+    color: rgb(255, 255, 255);
+}
+
+h1 {
+    color: #ffffff;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    padding: 30px 80px;
+
+}
+.header__nav{
+    box-sizing: border-box;
+
+}
+.home {
+    color: #EC3343;
+}
+.header__signup {
+    padding: 11px 40px;
+    background-color: #EC3343;
+
+    cursor: pointer;
+    border: 1px solid #EC3343;
+    color: #ffffff;
+}
+.header__login{
+    padding: 14px 43px;
+    background-color: initial;
+    cursor: pointer;
+    color: #ffffff;
+    border: 1px solid #101110; 
+}
+.nuv {
+    margin: 19px;;
+}
+
+.logo {
+    margin: auto;
+    display: flex;
+}
+
+.search:hover {
+    text-shadow: #ff0000 1px 0 10px;
+}
