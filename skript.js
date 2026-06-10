@@ -377,7 +377,7 @@ function initializeStorage() {
                 id: 1,
                 name: 'Admin',
                 email: 'admin@cinewave.com',
-                password: 'admin',
+                password: 'admin123',
                 role: 'admin'
             },
             {

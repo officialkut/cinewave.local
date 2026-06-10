@@ -1,0 +1,2 @@
+{"id":"user_6a29d4aa6def53.46166358","name":"test","email":"test@mail.ru","password":"$2y$10$\/lP9dTC5uYQINI0LsXr5pOCsAG6MWrCYJjxrRjXSF33QGCGATbMmK","role":"user","created_at":"2026-06-11 00:18:34","ip":"127.0.0.1"}
+{"id":"admin_001","name":"Administrator","email":"admin@cinewave.com","password":"$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi","role":"admin","created_at":"2024-06-11 00:00:00","ip":"127.0.0.1"}

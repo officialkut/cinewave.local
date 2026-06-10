@@ -3,3 +3,15 @@
 2026-06-11 00:01:57 | LOGIN_FAILED | {"email":"kutmankambarov7@gmail.com"} | IP: 127.0.0.1
 2026-06-11 00:02:49 | LOGIN_FAILED | {"email":"kutmankambarov7@gmail.com"} | IP: 127.0.0.1
 2026-06-11 00:02:54 | LOGIN_FAILED | {"email":"kutmankambarov7@gmail.com"} | IP: 127.0.0.1
+2026-06-11 00:18:34 | REGISTER | {"email":"test@mail.ru"} | IP: 127.0.0.1
+2026-06-11 00:19:03 | LOGIN_SUCCESS | {"email":"test@mail.ru"} | IP: 127.0.0.1
+2026-06-11 00:20:04 | LOGIN_FAILED | {"email":"admin@cinewave.com"} | IP: 127.0.0.1
+2026-06-11 00:20:11 | LOGIN_FAILED | {"email":"admin@cinewave.com"} | IP: 127.0.0.1
+2026-06-11 00:20:17 | LOGIN_FAILED | {"email":"admin@cinewave.com"} | IP: 127.0.0.1
+2026-06-11 00:20:54 | LOGIN_FAILED | {"email":"admin@cinewave.com"} | IP: 127.0.0.1
+2026-06-11 00:21:02 | LOGIN_FAILED | {"email":"admin@cinewave.com"} | IP: 127.0.0.1
+2026-06-11 00:26:44 | LOGIN_FAILED | {"email":"admin@cinewave.com"} | IP: 127.0.0.1
+2026-06-11 00:27:04 | LOGIN_FAILED | {"email":"admin@cinewave.com"} | IP: 127.0.0.1
+2026-06-11 00:28:42 | LOGIN_FAILED | {"email":"admin@cinewave.com"} | IP: 127.0.0.1
+2026-06-11 00:29:26 | LOGIN_FAILED | {"email":"admin@cinewave.com"} | IP: 127.0.0.1
+2026-06-11 00:31:49 | LOGIN_FAILED | {"email":"kutmankambarov7@gmail.com"} | IP: 127.0.0.1
