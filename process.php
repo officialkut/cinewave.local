@@ -98,8 +98,7 @@ function validate($data) {
             $errors['password'] = 'Пароль не должен превышать 128 символов';
         } elseif (!preg_match('/[A-Z]/', $password)) {
             $errors['password'] = 'Пароль должен содержать хотя бы одну заглавную букву';
-        } elseif (!preg_match('/[a-z]/', $password)) {
-            $errors['password'] = 'Пароль должен содержать хотя бы одну строчную букву';
+
         } elseif (!preg_match('/[0-9]/', $password)) {
             $errors['password'] = 'Пароль должен содержать хотя бы одну цифру';
         }

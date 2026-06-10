@@ -1899,3 +1899,43 @@ a:hover {
     color: #FFD700;
     margin-top: 4px;
 }
+/* Password Toggle Button */
+.password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-wrapper .form__input {
+    padding-right: 205px; /* Место для иконки глаза */
+}
+
+.password-toggle {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #9ca3af;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s;
+    z-index: 2;
+}
+
+.password-toggle:hover {
+    color: #ffffff;
+}
+
+.password-toggle:active {
+    color: #EC3343;
+}
+
+.password-toggle svg {
+    width: 20px;
+    height: 20px;
+}

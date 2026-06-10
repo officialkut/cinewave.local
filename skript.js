@@ -83,15 +83,15 @@ sliderData.forEach((_, index) => {
 function goToSlide(index) {
     const slides = sliderContainer.querySelectorAll('.slide');
     const dots = dotsContainer.querySelectorAll('.slider__dot');
-    
+
     slides[currentSlide].classList.remove('active');
     dots[currentSlide].classList.remove('active');
-    
+
     currentSlide = index;
-    
+
     slides[currentSlide].classList.add('active');
     dots[currentSlide].classList.add('active');
-    
+
     resetProgress();
 }
 
@@ -108,13 +108,13 @@ function prevSlide() {
 function startSlider() {
     let elapsed = 0;
     const step = 50;
-    
+
     sliderInterval = setInterval(() => {
         if (!isPaused) {
             elapsed += step;
             const progress = (elapsed / SLIDE_DURATION) * 100;
             progressBar.style.width = progress + '%';
-            
+
             if (elapsed >= SLIDE_DURATION) {
                 nextSlide();
                 elapsed = 0;
@@ -168,7 +168,7 @@ filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
         filterBtns.forEach(b => b.classList.remove('filter__btn--active'));
         btn.classList.add('filter__btn--active');
-        
+
         const category = btn.dataset.category;
         movieCards.forEach(card => {
             if (category === 'all' || card.dataset.category === category) {
@@ -189,7 +189,7 @@ toggleBtns.forEach(btn => {
     btn.addEventListener('click', () => {
         toggleBtns.forEach(b => b.classList.remove('toggle__btn--active'));
         btn.classList.add('toggle__btn--active');
-        
+
         const period = btn.dataset.period;
         if (period === 'monthly') {
             monthlyPrices.forEach(p => p.style.display = 'inline');
@@ -208,12 +208,12 @@ faqItems.forEach(item => {
     const question = item.querySelector('.faq__question');
     question.addEventListener('click', () => {
         const isActive = item.classList.contains('faq__item--active');
-        
+
         faqItems.forEach(i => {
             i.classList.remove('faq__item--active');
             i.querySelector('.faq__answer').classList.remove('faq__answer--active');
         });
-        
+
         if (!isActive) {
             item.classList.add('faq__item--active');
             item.querySelector('.faq__answer').classList.add('faq__answer--active');
@@ -296,24 +296,24 @@ function clearError(inputId, errorId) {
 document.getElementById('loginForm').addEventListener('submit', (e) => {
     e.preventDefault();
     let isValid = true;
-    
+
     const email = document.getElementById('loginEmail').value;
     const password = document.getElementById('loginPassword').value;
-    
+
     if (!validateEmail(email)) {
         showError('loginEmail', 'loginEmailError');
         isValid = false;
     } else {
         clearError('loginEmail', 'loginEmailError');
     }
-    
+
     if (!validatePassword(password)) {
         showError('loginPassword', 'loginPasswordError');
         isValid = false;
     } else {
         clearError('loginPassword', 'loginPasswordError');
     }
-    
+
     if (isValid) {
         alert('Login successful! Welcome to CineWave.');
         closeModal(loginModal);
@@ -323,46 +323,46 @@ document.getElementById('loginForm').addEventListener('submit', (e) => {
 document.getElementById('signupForm').addEventListener('submit', (e) => {
     e.preventDefault();
     let isValid = true;
-    
+
     const email = document.getElementById('signupEmail').value;
     const password = document.getElementById('signupPassword').value;
     const confirmPassword = document.getElementById('signupConfirmPassword').value;
     const terms = document.getElementById('signupTerms').checked;
-    
+
     if (!validateEmail(email)) {
         showError('signupEmail', 'signupEmailError');
         isValid = false;
     } else {
         clearError('signupEmail', 'signupEmailError');
     }
-    
+
     if (!validatePassword(password)) {
         showError('signupPassword', 'signupPasswordError');
         isValid = false;
     } else {
         clearError('signupPassword', 'signupPasswordError');
     }
-    
+
     if (password !== confirmPassword) {
         showError('signupConfirmPassword', 'signupConfirmError');
         isValid = false;
     } else {
         clearError('signupConfirmPassword', 'signupConfirmError');
     }
-    
+
     if (!terms) {
         document.getElementById('signupTermsError').classList.add('visible');
         isValid = false;
     } else {
         document.getElementById('signupTermsError').classList.remove('visible');
     }
-    
+
     if (isValid) {
         alert('Registration successful! Welcome to CineWave.');
         closeModal(signupModal);
     }
 });
-                              // ============ AUTH & ROLES ============
+// ============ AUTH & ROLES ============
 const STORAGE_KEYS = {
     USERS: 'cinewave_users',
     CURRENT_USER: 'cinewave_current_user',
@@ -390,54 +390,54 @@ function initializeStorage() {
         ];
         localStorage.setItem(STORAGE_KEYS.USERS, JSON.stringify(defaultUsers));
     }
-    
+
     if (!localStorage.getItem(STORAGE_KEYS.MOVIES)) {
         const defaultMovies = [
-            { 
-                id: 1, 
-                title: 'Whispers in the Dark', 
-                genre: 'horror', 
-                year: 2023, 
-                duration: '1h 38m', 
-                price: '$89.99', 
+            {
+                id: 1,
+                title: 'Whispers in the Dark',
+                genre: 'horror',
+                year: 2023,
+                duration: '1h 38m',
+                price: '$89.99',
                 rating: 8.5,
                 ratings: [
                     { userId: 2, value: 9 },
                     { userId: 1, value: 8 }
                 ]
             },
-            { 
-                id: 2, 
-                title: 'Galactic Odyssey', 
-                genre: 'scifi', 
-                year: 2024, 
-                duration: '1h 25m', 
-                price: 'FREE', 
+            {
+                id: 2,
+                title: 'Galactic Odyssey',
+                genre: 'scifi',
+                year: 2024,
+                duration: '1h 25m',
+                price: 'FREE',
                 rating: 7.9,
                 ratings: [
                     { userId: 2, value: 8 },
                     { userId: 1, value: 7.8 }
                 ]
             },
-            { 
-                id: 3, 
-                title: 'The Magic of Friendship', 
-                genre: 'family', 
-                year: 2024, 
-                duration: '2h 21m', 
-                price: 'FREE', 
+            {
+                id: 3,
+                title: 'The Magic of Friendship',
+                genre: 'family',
+                year: 2024,
+                duration: '2h 21m',
+                price: 'FREE',
                 rating: 7.5,
                 ratings: [
                     { userId: 2, value: 7.5 }
                 ]
             },
-            { 
-                id: 4, 
-                title: 'Dinner Disaster', 
-                genre: 'comedy', 
-                year: 2023, 
-                duration: '1h 30m', 
-                price: '$49.99', 
+            {
+                id: 4,
+                title: 'Dinner Disaster',
+                genre: 'comedy',
+                year: 2023,
+                duration: '1h 30m',
+                price: '$49.99',
                 rating: 8.2,
                 ratings: [
                     { userId: 2, value: 8.5 },
@@ -460,15 +460,15 @@ function calculateAverageRating(ratings) {
 function addOrUpdateRating(movieId, userId, value) {
     let movies = getMovies();
     const movieIndex = movies.findIndex(m => m.id === movieId);
-    
+
     if (movieIndex === -1) return false;
-    
+
     const movie = movies[movieIndex];
     if (!movie.ratings) movie.ratings = [];
-    
+
     // Проверяем, ставил ли уже этот пользователь оценку
     const existingRatingIndex = movie.ratings.findIndex(r => r.userId === userId);
-    
+
     if (existingRatingIndex !== -1) {
         // Обновляем существующую оценку
         movie.ratings[existingRatingIndex].value = value;
@@ -476,13 +476,13 @@ function addOrUpdateRating(movieId, userId, value) {
         // Добавляем новую оценку
         movie.ratings.push({ userId, value });
     }
-    
+
     // Пересчитываем средний рейтинг
     movie.rating = calculateAverageRating(movie.ratings);
-    
+
     movies[movieIndex] = movie;
     localStorage.setItem(STORAGE_KEYS.MOVIES, JSON.stringify(movies));
-    
+
     return true;
 }
 
@@ -491,7 +491,7 @@ function getUserRating(movieId, userId) {
     const movies = getMovies();
     const movie = movies.find(m => m.id === movieId);
     if (!movie || !movie.ratings) return null;
-    
+
     const userRating = movie.ratings.find(r => r.userId === userId);
     return userRating ? userRating.value : null;
 }
@@ -522,7 +522,7 @@ function logout() {
 function updateHeaderForUser() {
     const user = getCurrentUser();
     const headerActions = document.querySelector('.header__actions');
-    
+
     if (user) {
         headerActions.innerHTML = `
             <button class="header__search" type="button">
@@ -537,9 +537,9 @@ function updateHeaderForUser() {
             </div>
             <button class="header__login" type="button" id="logoutBtn">Logout</button>
         `;
-        
+
         document.getElementById('logoutBtn').addEventListener('click', logout);
-        
+
         // Show admin panel only for admins
         if (user.role === 'admin') {
             document.getElementById('adminPanel').style.display = 'block';
@@ -560,7 +560,7 @@ function updateHeaderForUser() {
             <button class="header__login" type="button" id="loginBtn">Login</button>
             <button class="header__signup" type="button" id="signupBtn">Sign Up</button>
         `;
-        
+
         document.getElementById('loginBtn').addEventListener('click', () => openModal(loginModal));
         document.getElementById('signupBtn').addEventListener('click', () => openModal(signupModal));
     }
@@ -570,30 +570,47 @@ function updateHeaderForUser() {
 // Обработка входа
 document.getElementById('loginForm').addEventListener('submit', async (e) => {
     e.preventDefault();
-    
+
     const formData = new FormData(e.target);
     const submitBtn = e.target.querySelector('button[type="submit"]');
     const originalText = submitBtn.textContent;
-    
+
     submitBtn.disabled = true;
     submitBtn.textContent = 'Logging in...';
-    
+
     try {
         const response = await fetch('process.php?action=login', {
             method: 'POST',
             body: formData
         });
-        
+
         const result = await response.json();
-        
+
         if (result.success) {
-            alert('Welcome, ' + result.data.user.name + '!');
-            closeModal(loginModal);
-            e.target.reset();
-            
-            // Сохраняем пользователя
             localStorage.setItem('cinewave_current_user', JSON.stringify(result.data.user));
-            updateHeaderForUser();
+            closeModal(loginModal);
+
+            // Показываем уведомление и обновляем
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+        position: fixed;
+        top: 80px;
+        right: 20px;
+        background: #10b981;
+        color: white;
+        padding: 16px 24px;
+        border-radius: 8px;
+        z-index: 9999;
+        font-size: 14px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        animation: slideIn 0.3s ease;
+    `;
+            notification.textContent = '✓ Welcome, ' + result.data.user.name + '!';
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                location.reload();
+            }, 1500); // Обновление через 1.5 секунды
         } else {
             alert(result.message);
         }
@@ -607,52 +624,52 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
 
 document.getElementById('signupForm').addEventListener('submit', async (e) => {
     e.preventDefault();
-    
+
     const formData = new FormData(e.target);
     const submitBtn = e.target.querySelector('button[type="submit"]');
     const originalText = submitBtn.textContent;
-    
+
     // Локальная валидация перед отправкой
     let isValid = true;
     const email = formData.get('email');
     const password = formData.get('password');
     const confirmPassword = formData.get('confirm_password');
-    
+
     if (!validateEmail(email)) {
         showError('signupEmail', 'signupEmailError');
         isValid = false;
     } else {
         clearError('signupEmail', 'signupEmailError');
     }
-    
+
     if (!validatePassword(password)) {
         showError('signupPassword', 'signupPasswordError');
         isValid = false;
     } else {
         clearError('signupPassword', 'signupPasswordError');
     }
-    
+
     if (password !== confirmPassword) {
         showError('signupConfirmPassword', 'signupConfirmError');
         isValid = false;
     } else {
         clearError('signupConfirmPassword', 'signupConfirmError');
     }
-    
+
     if (!isValid) return;
-    
+
     // Отправка на сервер
     submitBtn.disabled = true;
     submitBtn.textContent = 'Registering...';
-    
+
     try {
         const response = await fetch('process.php?action=register', {
             method: 'POST',
             body: formData
         });
-        
+
         const result = await response.json();
-        
+
         if (result.success) {
             alert(result.message);
             closeModal(signupModal);
@@ -662,9 +679,9 @@ document.getElementById('signupForm').addEventListener('submit', async (e) => {
             if (result.errors) {
                 Object.keys(result.errors).forEach(field => {
                     const errorId = field + 'Error';
-                    const inputId = field === 'confirm_password' ? 'signupConfirmPassword' : 
-                                    field === 'terms' ? 'signupTermsError' : 'signup' + capitalize(field);
-                    
+                    const inputId = field === 'confirm_password' ? 'signupConfirmPassword' :
+                        field === 'terms' ? 'signupTermsError' : 'signup' + capitalize(field);
+
                     if (document.getElementById(errorId)) {
                         document.getElementById(errorId).textContent = result.errors[field];
                         document.getElementById(errorId).classList.add('visible');
@@ -684,22 +701,22 @@ document.getElementById('signupForm').addEventListener('submit', async (e) => {
 
 document.querySelector('.newsletter__form').addEventListener('submit', async (e) => {
     e.preventDefault();
-    
+
     const formData = new FormData(e.target);
     const submitBtn = e.target.querySelector('button[type="submit"]');
     const originalText = submitBtn.textContent;
-    
+
     submitBtn.disabled = true;
     submitBtn.textContent = 'Subscribing...';
-    
+
     try {
         const response = await fetch('process.php?action=subscribe', {
             method: 'POST',
             body: formData
         });
-        
+
         const result = await response.json();
-        
+
         if (result.success) {
             alert(result.message);
             e.target.reset();
@@ -723,16 +740,16 @@ function renderMovies() {
     const movies = getMovies();
     const currentUser = getCurrentUser();
     const movieCards = document.querySelectorAll('.movie-card');
-    
+
     if (movieCards.length === 0) return;
-    
+
     movieCards.forEach((card, index) => {
         if (index >= movies.length) return;
-        
+
         const movie = movies[index];
         const userRating = currentUser ? getUserRating(movie.id, currentUser.id) : null;
         const ratingCount = movie.ratings ? movie.ratings.length : 0;
-        
+
         // Обновляем рейтинг
         const ratingEl = card.querySelector('.movie-card__rating');
         if (ratingEl) {
@@ -744,21 +761,23 @@ function renderMovies() {
                 <span class="movie-card__rating-count">(${ratingCount})</span>
             `;
         }
-        
+
         // Добавляем кнопку оценки если пользователь залогинен
         const footer = card.querySelector('.movie-card__footer');
         if (footer && currentUser) {
+            // Удаляем старую кнопку если есть
             const oldBtn = card.querySelector('.movie-card__rate-btn');
             const oldYourRating = card.querySelector('.movie-card__your-rating');
             if (oldBtn) oldBtn.remove();
             if (oldYourRating) oldYourRating.remove();
-            
+
+            // Добавляем кнопку оценки
             const rateBtn = document.createElement('button');
             rateBtn.className = 'movie-card__rate-btn';
             rateBtn.textContent = userRating ? 'Change Rating' : 'Rate This';
-            rateBtn.onclick = () => openRateModal(movie.id);
+            rateBtn.onclick = () => openRateModal(movie.id); // ← ВОТ ЭТО ВАЖНО!
             footer.appendChild(rateBtn);
-            
+
             if (userRating) {
                 const yourRating = document.createElement('div');
                 yourRating.className = 'movie-card__your-rating';
@@ -768,7 +787,6 @@ function renderMovies() {
         }
     });
 }
-
 // ============ ADMIN PANEL ============
 
 // Admin tabs
@@ -779,7 +797,7 @@ adminTabs.forEach(tab => {
     tab.addEventListener('click', () => {
         adminTabs.forEach(t => t.classList.remove('active'));
         adminTabContents.forEach(c => c.classList.remove('active'));
-        
+
         tab.classList.add('active');
         document.getElementById(`tab-${tab.dataset.tab}`).classList.add('active');
     });
@@ -789,7 +807,7 @@ adminTabs.forEach(tab => {
 function renderAdminMovies() {
     const movies = getMovies();
     const tbody = document.getElementById('moviesTableBody');
-    
+
     tbody.innerHTML = movies.map(movie => `
         <tr>
             <td>${movie.title}</td>
@@ -807,7 +825,7 @@ function renderAdminMovies() {
 function renderAdminUsers() {
     const users = getUsers();
     const tbody = document.getElementById('usersTableBody');
-    
+
     tbody.innerHTML = users.map(user => `
         <tr>
             <td>${user.name}</td>
@@ -824,7 +842,7 @@ function renderAdminUsers() {
 function updateAdminStats() {
     const users = getUsers();
     const movies = getMovies();
-    
+
     document.getElementById('statUsers').textContent = users.length;
     document.getElementById('statMovies').textContent = movies.length;
 }
@@ -844,7 +862,7 @@ adminLogout.addEventListener('click', logout);
 // Add movie form
 document.getElementById('addMovieForm').addEventListener('submit', (e) => {
     e.preventDefault();
-    
+
     const newMovie = {
         id: Date.now(),
         title: document.getElementById('movieTitle').value,
@@ -854,21 +872,21 @@ document.getElementById('addMovieForm').addEventListener('submit', (e) => {
         price: document.getElementById('moviePrice').value,
         rating: parseFloat(document.getElementById('movieRating').value)
     };
-    
+
     const movies = getMovies();
     movies.push(newMovie);
     localStorage.setItem(STORAGE_KEYS.MOVIES, JSON.stringify(movies));
-    
+
     renderAdminMovies();
     updateAdminStats();
     closeModal(addMovieModal);
     e.target.reset();
-    
+
     alert('Movie added successfully!');
 });
 
 // Global functions for onclick handlers
-window.deleteMovie = function(id) {
+window.deleteMovie = function (id) {
     if (confirm('Are you sure you want to delete this movie?')) {
         let movies = getMovies();
         movies = movies.filter(m => m.id !== id);
@@ -878,7 +896,7 @@ window.deleteMovie = function(id) {
     }
 };
 
-window.deleteUser = function(id) {
+window.deleteUser = function (id) {
     if (confirm('Are you sure you want to delete this user?')) {
         let users = getUsers();
         users = users.filter(u => u.id !== id);
@@ -915,16 +933,16 @@ function openRateModal(movieId) {
         openModal(loginModal);
         return;
     }
-    
+
     currentRatingMovieId = movieId;
     const movies = getMovies();
     const movie = movies.find(m => m.id === movieId);
-    
+
     if (!movie) return;
-    
+
     rateMovieTitle.textContent = movie.title;
     selectedRatingValue = getUserRating(movieId, currentUser.id);
-    
+
     updateStarDisplay();
     openModal(rateMovieModal);
 }
@@ -939,7 +957,7 @@ function updateStarDisplay() {
             star.classList.remove('active');
         }
     });
-    
+
     if (selectedRatingValue) {
         ratingPreview.textContent = `You selected: ${selectedRatingValue}/10`;
         submitRatingBtn.disabled = false;
@@ -955,7 +973,7 @@ ratingStars.querySelectorAll('.star-btn').forEach(star => {
         selectedRatingValue = parseInt(star.dataset.value);
         updateStarDisplay();
     });
-    
+
     star.addEventListener('mouseenter', () => {
         const hoverValue = parseInt(star.dataset.value);
         const stars = ratingStars.querySelectorAll('.star-btn');
@@ -978,21 +996,40 @@ ratingStars.addEventListener('mouseleave', () => {
 submitRatingBtn.addEventListener('click', () => {
     const currentUser = getCurrentUser();
     if (!currentUser || !currentRatingMovieId || !selectedRatingValue) return;
-    
+
     addOrUpdateRating(currentRatingMovieId, currentUser.id, selectedRatingValue);
-    
+
     closeModal(rateMovieModal);
     renderMovies();
-    
+
     // Обновляем админ-панель если открыта
     const adminPanel = document.getElementById('adminPanel');
     if (adminPanel && adminPanel.style.display !== 'none') {
         renderAdminMovies();
     }
-    
+
     alert(`Rating submitted: ${selectedRatingValue}/10`);
 });
 
 // Закрытие модалки
 closeRateMovie.addEventListener('click', () => closeModal(rateMovieModal));
 rateMovieModal.querySelector('.modal__overlay').addEventListener('click', () => closeModal(rateMovieModal));
+// ============ PASSWORD TOGGLE ============
+document.querySelectorAll('.password-toggle').forEach(button => {
+    button.addEventListener('click', function() {
+        const targetId = this.getAttribute('data-target');
+        const input = document.getElementById(targetId);
+        const eyeOpen = this.querySelector('.eye-open');
+        const eyeClosed = this.querySelector('.eye-closed');
+        
+        if (input.type === 'password') {
+            input.type = 'text';
+            eyeOpen.style.display = 'none';
+            eyeClosed.style.display = 'block';
+        } else {
+            input.type = 'password';
+            eyeOpen.style.display = 'block';
+            eyeClosed.style.display = 'none';
+        }
+    });
+});

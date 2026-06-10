@@ -686,10 +686,11 @@
             <h2 class="newsletter__title">Newsletter Subscription</h2>
             <p class="newsletter__description">Stay updated with the latest releases and exclusive offers!</p>
             <div class="newsletter__form">
-            <form class="newsletter__form" action="process.php?action=subscribe" method="POST">
-                <input type="email" name="email" placeholder="Insert Your E-mail" class="newsletter__input" required>
-                <button type="submit" class="newsletter__button">Subscribe</button>
-            </form>
+                <form class="newsletter__form" action="process.php?action=subscribe" method="POST">
+                    <input type="email" name="email" placeholder="Insert Your E-mail" class="newsletter__input"
+                        required>
+                    <button type="submit" class="newsletter__button">Subscribe</button>
+                </form>
             </div>
         </div>
     </section>
@@ -887,8 +888,24 @@
                 </div>
                 <div class="form__group">
                     <label class="form__label">Password</label>
-                    <input type="password" class="form__input" name="password" id="loginPassword" placeholder="••••••••"
-                        required>
+                    <div class="password-wrapper">
+                        <input type="password" class="form__input" name="password" id="loginPassword"
+                            placeholder="••••••••" required>
+                        <button type="button" class="password-toggle" data-target="loginPassword">
+                            <svg class="eye-open" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                <circle cx="12" cy="12" r="3"></circle>
+                            </svg>
+                            <svg class="eye-closed" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" style="display: none;">
+                                <path
+                                    d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24">
+                                </path>
+                                <line x1="1" y1="1" x2="23" y2="23"></line>
+                            </svg>
+                        </button>
+                    </div>
                     <p class="form__error" id="loginPasswordError">Password must be at least 8 characters</p>
                 </div>
                 <div class="form__options">
@@ -934,31 +951,49 @@
                 </div>
                 <div class="form__group">
                     <label class="form__label">Password</label>
-                    <input type="password" class="form__input" name="password" id="signupPassword"
-                        placeholder="Minimum 8 characters" required>
+                    <div class="password-wrapper">
+                        <input type="password" class="form__input" name="password" id="signupPassword"
+                            placeholder="Minimum 8 characters" required>
+                        <button type="button" class="password-toggle" data-target="signupPassword">
+                            <svg class="eye-open" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                <circle cx="12" cy="12" r="3"></circle>
+                            </svg>
+                            <svg class="eye-closed" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" style="display: none;">
+                                <path
+                                    d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24">
+                                </path>
+                                <line x1="1" y1="1" x2="23" y2="23"></line>
+                            </svg>
+                        </button>
+                    </div>
                     <p class="form__error" id="signupPasswordError">Password must be at least 8 characters</p>
                 </div>
-                <div class="form__group">
-                    <label class="form__label">Confirm Password</label>
-                    <input type="password" class="form__input" name="confirm_password" id="signupConfirmPassword"
-                        placeholder="Repeat password" required>
-                    <p class="form__error" id="signupConfirmError">Passwords do not match</p>
-                </div>
-                <label class="form__checkbox form__checkbox--terms">
-                    <input type="checkbox" name="terms" id="signupTerms" value="1" required>
-                    <span>I agree to the <a href="#" class="form__link">Terms of Service</a> and <a href="#"
-                            class="form__link">Privacy Policy</a></span>
-                </label>
-                <p class="form__error" id="signupTermsError">You must accept the terms of service</p>
-                <button type="submit" class="form__button">Sign Up</button>
-            </form>
-
-
-            <p class="modal__switch">
-                Already have an account?
-                <button class="modal__switch-btn" id="switchToLogin">Login</button>
-            </p>
+                <p class="form__error" id="loginPasswordError">Password must be at least 8 characters</p>
         </div>
+        <div class="form__group">
+            <label class="form__label">Confirm Password</label>
+            <input type="password" class="form__input" name="confirm_password" id="signupConfirmPassword"
+                placeholder="Repeat password" required>
+            <p class="form__error" id="signupConfirmError">Passwords do not match</p>
+        </div>
+        <label class="form__checkbox form__checkbox--terms">
+            <input type="checkbox" name="terms" id="signupTerms" value="1" required>
+            <span>I agree to the <a href="#" class="form__link">Terms of Service</a> and <a href="#"
+                    class="form__link">Privacy Policy</a></span>
+        </label>
+        <p class="form__error" id="signupTermsError">You must accept the terms of service</p>
+        <button type="submit" class="form__button">Sign Up</button>
+        </form>
+
+
+        <p class="modal__switch">
+            Already have an account?
+            <button class="modal__switch-btn" id="switchToLogin">Login</button>
+        </p>
+    </div>
     </div>
     <!-- Rate Movie Modal -->
     <div class="modal" id="rateMovieModal">
