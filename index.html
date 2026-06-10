@@ -6,252 +6,985 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/normalize.css">
     <link rel="stylesheet" href="styles/style.css">
-    <title>Film</title>
+    <title>CineWave - Stream Your Favorite Movies</title>
 </head>
 
 <body class="body">
-    <header>
-        <nav class="header__nav">
-            <ul class="Noviganion">
-                <a class="home nuv" href="">Home</a>
-                <a  class="nuv">Movies</a>
-                <a class="nuv">Categories</a>
-                <a class="nuv">Pricing</a>
-            </ul>
-        </nav>
+    <!-- Header -->
+    <header class="header">
+        <div class="header__container">
 
-
-        <div class="logo">
-            <img src="images/Vector.svg" alt="">
-            <p href="">CineWave</p>
-        </div>
-        <div class="search"><img src="images/Icon Search.svg" alt=""></div>
-
-        <div class="CTA">
-            <button class="header__login" type="button" id="header__login">Login</button>
-            <button id="header__signup" class="header__signup">Sign Up</button>
-
+            <nav class="header__nav">
+                <a class="nav__link nav__link--active" href="#">Home</a>
+                <a class="nav__link" href="#">Movies</a>
+                <a class="nav__link" href="#">Categories</a>
+                <a class="nav__link" href="#">Pricing</a>
+            </nav>
+            <div class="logo">
+                <svg class="logo__icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M4 4L20 12L4 20V4Z" />
+                </svg>
+                <span class="logo__text">CineWave</span>
+            </div>
+            <div class="header__actions">
+                <button class="header__search" type="button">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+                <button class="header__login" type="button" id="loginBtn">Login</button>
+                <button class="header__signup" type="button" id="signupBtn">Sign Up</button>
+            </div>
         </div>
     </header>
 
-    <section class="">
-        <div class="Back__Next">
-            <div class="imeges"></div>
+    <!-- Hero Slider -->
+    <section class="hero">
+        <div class="hero__slider" id="heroSlider">
 
-        </div>
-        <div class="counters">
-            <div class="counter">
-                <span class="number">10K</span>
-                <span class="plus">+</span>
-                <p>Daily Streams</p>
-            </div>
-            <div class="counter">
-                <span class="number">1M</span>
-                <span class="plus">+</span>
-                <p>Happy Subscribers</p>
-            </div>
-            <div class="counter">
-                <span class="number">50K</span>
-                <span class="plus">+</span>
-                <p>Movies Available</p>
-            </div>
-        </div>
-
-
-        <p href="">Stream Your Favorite Movies Anytime, Anywhere!</p>
-        <p href="">Dive into a vast library of films from every genre, including the latest blockbusters, timeless
-            classics, and hidden gems. Whether you're in the mood for action, romance, comedy, or drama, we have
-            something for everyone.
-        </p>
-        <div class="CTA__sort">
-
-            <div class="search"></div>
-            <Form class="genre"></Form>
-            <Form class="chennel"></Form>
-            <Form class="subtitle"></Form>
-            <button class="search"></button>
-        </div>
-    </section>
-    <section class="">
-        <p href="">Trending Movies in 2024</p>
-        <div class="menu__bar">
-
-            <a href="">All</a>
-            <a href="">Action</a>
-            <a href="">Comedy</a>
-            <a href="">Drama</a>
-            <a href="">Horror</a>
-            <a href="">Sci-Fi</a>
-            <a href="">Family</a>
-            <a href="">Documentaries</a>
-        </div>
-        <a href="">See More</a>
-        <div class="card-container">
-            <div class="movie"></div>
-            <div class="movie"></div>
-            <div class="movie"></div>
-            <div class="movie"></div>
-        </div>
-
-    </section>
-    <section class="">
-        <p href="">Search by Categories</p>
-        <p>Discover your next favorite film! Browse our extensive library by categories:</p>
-        <div class="All">
-            <p>All</p>
-        </div>
-        <div class="Action">
-            <p>Action</p>
-        </div>
-        <div class="Comedy">Comedy</div>
-        <div class="Drama">Drama</div>
-        <div class="Horror">Horror</div>
-        <div class="Sci-Fi">Sci-Fi</div>
-        <div class="Family">Family</div>
-        <div class="Documentaries">Documentaries</div>
-    </section>
-    <section>
-        <div>
-            <div>
-                <p>Choose the perfect plan for you!</p>
-                <p>Choose the perfect plan for your movie-watching experience! We offer flexible subscription options to
-                    suit every viewer's needs:</p>
-                <div class="toggle">
-                    <button>Montlly</button>
-                    <button>Yearly</button>
+            <div class="slider__main">
+                <div class="slider__container" id="sliderContainer">
+                    <!-- Slides rendered by JS -->
                 </div>
-                <div>
-                    <div class="Card">
-                        <p>Basic Plan</p>
-                        <p>Access to standard definition streaming.</p>
-                        <nav class="Price">
-                            <p>$9.99</p>
-                            <p>/month</p>
-                        </nav>
-                        <div class="Bene">
-                            <div class="check">
-                                <p>Unlimited access</p>
-                            </div>
-                            <div class="check__1">1 Device</div>
-                            <div class="check__3">Perfect for casual viewers</div>
-                            <div class="check__4">Access to a selection of classic films and popular series.</div>
+                <button class="slider__arrow slider__arrow--prev" id="prevSlide">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                </button>
+                <button class="slider__arrow slider__arrow--next" id="nextSlide">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
+                <div class="slider__dots" id="sliderDots"></div>
+                <div class="slider__progress" id="sliderProgress"></div>
+            </div>
 
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats">
+        <div class="stats__container">
+            <div class="stat">
+                <div class="stat__number">10K<span class="stat__plus">+</span></div>
+                <div class="stat__label">Daily Streams</div>
+            </div>
+            <div class="stat">
+                <div class="stat__number">1M<span class="stat__plus">+</span></div>
+                <div class="stat__label">Happy Subscribers</div>
+            </div>
+            <div class="stat">
+                <div class="stat__number">50K<span class="stat__plus">+</span></div>
+                <div class="stat__label">Movies Available</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="cta__container">
+            <h2 class="cta__title">Stream Your Favorite Movies Anytime, Anywhere!</h2>
+            <p class="cta__description">Dive into a vast library of films from every genre, including the latest
+                blockbusters, timeless classics, and hidden gems. Whether you're in the mood for action, romance,
+                comedy, or drama, we have something for everyone.</p>
+            <div class="cta__search">
+                <div class="search__input">
+                    <svg class="search__icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input type="text" placeholder="Search">
+                </div>
+                <select class="cta__select">
+                    <option>Genre</option>
+                    <option>Action</option>
+                    <option>Comedy</option>
+                    <option>Drama</option>
+                </select>
+                <select class="cta__select">
+                    <option>Channel</option>
+                    <option>Netflix</option>
+                    <option>HBO</option>
+                    <option>Prime</option>
+                </select>
+                <select class="cta__select">
+                    <option>Subtitle</option>
+                    <option>English</option>
+                    <option>Russian</option>
+                    <option>Spanish</option>
+                </select>
+                <button class="cta__button">Search Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trending Movies -->
+    <section class="trending">
+        <div class="trending__container">
+            <h2 class="trending__title">Trending Movies in 2024</h2>
+            <div class="trending__filters">
+                <button class="filter__btn filter__btn--active" data-category="all">All</button>
+                <button class="filter__btn" data-category="action">Action</button>
+                <button class="filter__btn" data-category="comedy">Comedy</button>
+                <button class="filter__btn" data-category="drama">Drama</button>
+                <button class="filter__btn" data-category="horror">Horror</button>
+                <button class="filter__btn" data-category="scifi">Sci-Fi</button>
+                <button class="filter__btn" data-category="family">Family</button>
+                <button class="filter__btn" data-category="documentary">Documentaries</button>
+                <a href="#" class="trending__more">See More</a>
+            </div>
+            <div class="trending__grid">
+                <div class="movie-card" data-category="horror">
+                    <div class="movie-card__image">
+                        <div class="movie-card__rating">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="#FFD700">
+                                <path
+                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                            </svg>
+                            8.5
                         </div>
                     </div>
-                    <button>Explore Now</button>
-                    <a href="">About Package</a>
-                </div>
-                <div class="Card">
-                    <p>Standard Plan</p>
-                    <p>Enjoy HD streaming on two devices.</p>
-                    <nav class="Price">
-                        <p>$14.99</p>
-                        <p>/month</p>
-                    </nav>
-                    <div>
-                        <p>Unlimited access</p>
-                        <p>2 Device</p>
-                        <p>Enjoy all the benefits of the Basic Plan</p>
-                        <p>Access to exclusive content and new releases.</p>
-                        <p>Offline Download</p>
-                        <p>Ideal for families or couples</p>
+                    <div class="movie-card__genre">Horror</div>
+                    <h3 class="movie-card__title">Whispers in the Dark</h3>
+                    <div class="movie-card__meta">
+                        <span>2023</span>
+                        <span>|</span>
+                        <span>1h 38m</span>
                     </div>
-                    <button>Explore Now</button>
-                    <a href="">About Package</a>
-                </div>
-                <div>
-                    <p>Premium Plan</p>
-                    <p>Experience 4K streaming on four devices.</p>
-                    <nav class="Price">
-                        <p>$19.99</p>
-                        <p>/month</p>
-                    </nav>
-                    <div>
-                        <p>Unlimited access</p>
-                        <p>4 Device</p>
-                        <p>Enjoy all the benefits of the Standard Plan</p>
-                        <p>Early access to new releases and original content.</p>
-                        <p>Personalized recommendations</p>
-                        <p>Priority customer support</p>
-
+                    <div class="movie-card__footer">
+                        <span class="movie-card__price">$89.99</span>
+                        <span class="movie-card__badge">PRE-BOOKING</span>
                     </div>
-                    <button>Explore Now</button>
-                    <a href="">About Package</a>
+                </div>
+                <div class="movie-card" data-category="scifi">
+                    <div class="movie-card__image">
+                        <div class="movie-card__rating">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="#FFD700">
+                                <path
+                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                            </svg>
+                            7.9
+                        </div>
+                    </div>
+                    <div class="movie-card__genre">Sci-Fi</div>
+                    <h3 class="movie-card__title">Galactic Odyssey</h3>
+                    <div class="movie-card__meta">
+                        <span>2024</span>
+                        <span>|</span>
+                        <span>1h 25m</span>
+                    </div>
+                    <div class="movie-card__footer">
+                        <span class="movie-card__price movie-card__price--free">FREE</span>
+                    </div>
+                </div>
+                <div class="movie-card" data-category="family">
+                    <div class="movie-card__image">
+                        <div class="movie-card__rating">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="#FFD700">
+                                <path
+                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                            </svg>
+                            7.5
+                        </div>
+                    </div>
+                    <div class="movie-card__genre">Family</div>
+                    <h3 class="movie-card__title">The Magic of Friendship</h3>
+                    <div class="movie-card__meta">
+                        <span>2024</span>
+                        <span>|</span>
+                        <span>2h 21m</span>
+                    </div>
+                    <div class="movie-card__footer">
+                        <span class="movie-card__price movie-card__price--free">FREE</span>
+                    </div>
+                </div>
+                <div class="movie-card" data-category="comedy">
+                    <div class="movie-card__image">
+                        <div class="movie-card__rating">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="#FFD700">
+                                <path
+                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                            </svg>
+                            8.2
+                        </div>
+                    </div>
+                    <div class="movie-card__genre">Comedy</div>
+                    <h3 class="movie-card__title">Dinner Disaster</h3>
+                    <div class="movie-card__meta">
+                        <span>2023</span>
+                        <span>|</span>
+                        <span>1h 30m</span>
+                    </div>
+                    <div class="movie-card__footer">
+                        <span class="movie-card__price">$49.99</span>
+                        <span class="movie-card__badge">PRE-BOOKING</span>
+                    </div>
                 </div>
             </div>
         </div>
+    </section>
 
-    </section>
-    <section>
-        <div>
-            <h2>Why Choose Us</h2>
-            <p>Experience the Best in Movie Streaming with CineWave</p>
+    <!-- Categories -->
+    <section class="categories">
+        <div class="categories__container">
+            <h2 class="categories__title">Search by Categories</h2>
+            <p class="categories__description">Discover your next favorite film! Browse our extensive library by
+                categories:</p>
+            <div class="categories__grid">
+                <button class="category__btn">
+                    <svg class="category__icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect>
+                        <line x1="7" y1="2" x2="7" y2="22"></line>
+                        <line x1="17" y1="2" x2="17" y2="22"></line>
+                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                        <line x1="2" y1="7" x2="7" y2="7"></line>
+                        <line x1="2" y1="17" x2="7" y2="17"></line>
+                        <line x1="17" y1="17" x2="22" y2="17"></line>
+                        <line x1="17" y1="7" x2="22" y2="7"></line>
+                    </svg>
+                    Action
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
+                <button class="category__btn">
+                    <svg class="category__icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                        <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                        <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                    </svg>
+                    Comedy
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
+                <button class="category__btn">
+                    <svg class="category__icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <path d="M2 12h20"></path>
+                        <path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6"></path>
+                        <path d="M12 2v10"></path>
+                        <path d="M12 12 8 8"></path>
+                        <path d="m12 12 4-4"></path>
+                    </svg>
+                    Drama
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
+                <button class="category__btn">
+                    <svg class="category__icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <path d="M9 10h.01"></path>
+                        <path d="M15 10h.01"></path>
+                        <path d="M12 2a8 8 0 0 0-8 8v12l3-3 2.5 2.5L12 19l2.5 2.5L17 19l3 3V10a8 8 0 0 0-8-8z"></path>
+                    </svg>
+                    Horror
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
+                <button class="category__btn">
+                    <svg class="category__icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z">
+                        </path>
+                        <path
+                            d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z">
+                        </path>
+                        <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
+                        <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
+                    </svg>
+                    Sci-Fi
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
+                <button class="category__btn">
+                    <svg class="category__icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z">
+                        </path>
+                    </svg>
+                    Family
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
+                <button class="category__btn">
+                    <svg class="category__icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect>
+                        <line x1="7" y1="2" x2="7" y2="22"></line>
+                        <line x1="17" y1="2" x2="17" y2="22"></line>
+                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                        <line x1="2" y1="7" x2="7" y2="7"></line>
+                        <line x1="2" y1="17" x2="7" y2="17"></line>
+                        <line x1="17" y1="17" x2="22" y2="17"></line>
+                        <line x1="17" y1="7" x2="22" y2="7"></line>
+                    </svg>
+                    Documentaries
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
+            </div>
         </div>
-        <div>
-            <div>
-                <p>Extensive Library</p>
-                <p>Dive into our vast collection of thousands of movies spanning all genres.</p> <a href="">Learn
-                    More</a>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing">
+        <div class="pricing__container">
+            <h2 class="pricing__title">Choose the perfect plan for you!</h2>
+            <p class="pricing__description">Choose the perfect plan for your movie-watching experience! We offer
+                flexible subscription options to suit every viewer's needs:</p>
+            <div class="pricing__toggle">
+                <button class="toggle__btn toggle__btn--active" data-period="monthly">Monthly</button>
+                <button class="toggle__btn" data-period="yearly">Yearly</button>
             </div>
-            <div>
-                <p>High-Quality Streaming</p>
-                <p>Enjoy your favorite films in stunning HD quality with our seamless streaming service.</p><a
-                    href="">Learn More</a>
+            <div class="pricing__cards">
+                <div class="pricing-card">
+                    <h3 class="pricing-card__title">Basic Plan</h3>
+                    <p class="pricing-card__description">Access to standard definition streaming.</p>
+                    <div class="pricing-card__price">
+                        <span class="price-amount price-monthly">$9.99</span>
+                        <span class="price-amount price-yearly" style="display: none;">$99.99</span>
+                        <span class="price-period">/month</span>
+                    </div>
+                    <ul class="pricing-card__features">
+                        <li class="feature">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EC3343"
+                                stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Unlimited access
+                        </li>
+                        <li class="feature">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EC3343"
+                                stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            1 Device
+                        </li>
+                        <li class="feature">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EC3343"
+                                stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Perfect for casual viewers
+                        </li>
+                        <li class="feature">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EC3343"
+                                stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Access to a selection of classic films and popular series.
+                        </li>
+                    </ul>
+                    <button class="pricing-card__button">Explore Now</button>
+                    <a href="#" class="pricing-card__link">About Package</a>
+                </div>
+                <div class="pricing-card pricing-card--featured">
+                    <h3 class="pricing-card__title">Standard Plan</h3>
+                    <p class="pricing-card__description">Enjoy HD streaming on two devices.</p>
+                    <div class="pricing-card__price">
+                        <span class="price-amount price-monthly">$14.99</span>
+                        <span class="price-amount price-yearly" style="display: none;">$149.99</span>
+                        <span class="price-period">/month</span>
+                    </div>
+                    <ul class="pricing-card__features">
+                        <li class="feature">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Unlimited access
+                        </li>
+                        <li class="feature">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            2 Device
+                        </li>
+                        <li class="feature">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Enjoy all the benefits of the Basic Plan
+                        </li>
+                        <li class="feature">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Access to exclusive content and new releases.
+                        </li>
+                        <li class="feature">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Offline Download
+                        </li>
+                        <li class="feature">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Ideal for families or couples
+                        </li>
+                    </ul>
+                    <button class="pricing-card__button pricing-card__button--white">Explore Now</button>
+                    <a href="#" class="pricing-card__link">About Package</a>
+                </div>
+                <div class="pricing-card">
+                    <h3 class="pricing-card__title">Premium Plan</h3>
+                    <p class="pricing-card__description">Experience 4K streaming on four devices.</p>
+                    <div class="pricing-card__price">
+                        <span class="price-amount price-monthly">$19.99</span>
+                        <span class="price-amount price-yearly" style="display: none;">$199.99</span>
+                        <span class="price-period">/month</span>
+                    </div>
+                    <ul class="pricing-card__features">
+                        <li class="feature">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EC3343"
+                                stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Unlimited access
+                        </li>
+                        <li class="feature">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EC3343"
+                                stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            4 Device
+                        </li>
+                        <li class="feature">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EC3343"
+                                stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Enjoy all the benefits of the Standard Plan
+                        </li>
+                        <li class="feature">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EC3343"
+                                stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Early access to new releases and original content.
+                        </li>
+                        <li class="feature">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EC3343"
+                                stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Personalized recommendations
+                        </li>
+                        <li class="feature">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EC3343"
+                                stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Priority customer support
+                        </li>
+                    </ul>
+                    <button class="pricing-card__button">Explore Now</button>
+                    <a href="#" class="pricing-card__link">About Package</a>
+                </div>
             </div>
-            <div>
-                <p>Affordable Plans</p>
-                <p>We believe that great entertainment should be accessible to everyone.</p><a href="">Learn More</a>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="features">
+        <div class="features__container">
+            <div class="features__header">
+                <h2 class="features__title">Why Choose Us</h2>
+                <p class="features__description">Experience the Best in Movie Streaming with CineWave</p>
             </div>
-            <div>
-                <p>24/7 Customer Support</p>
-                <p>Your satisfaction is our priority. Our dedicated customer support team is available 24/7.</p><a
-                    href="">Learn More</a>
+            <div class="features__grid">
+                <div class="feature-card">
+                    <div class="feature-card__icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="feature-card__title">Extensive Library</h3>
+                    <p class="feature-card__description">Dive into our vast collection of thousands of movies spanning
+                        all genres.</p>
+                    <a href="#" class="feature-card__link">Learn More</a>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card__icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                            <line x1="8" y1="21" x2="16" y2="21"></line>
+                            <line x1="12" y1="17" x2="12" y2="21"></line>
+                        </svg>
+                    </div>
+                    <h3 class="feature-card__title">High-Quality Streaming</h3>
+                    <p class="feature-card__description">Enjoy your favorite films in stunning HD quality with our
+                        seamless streaming service.</p>
+                    <a href="#" class="feature-card__link">Learn More</a>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card__icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"></path>
+                            <path d="M3 5v14a2 2 0 0 0 2 2h16v-5"></path>
+                            <path d="M18 12a2 2 0 0 0 0 4h4v-4Z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="feature-card__title">Affordable Plans</h3>
+                    <p class="feature-card__description">We believe that great entertainment should be accessible to
+                        everyone.</p>
+                    <a href="#" class="feature-card__link">Learn More</a>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card__icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
+                            <path
+                                d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="feature-card__title">24/7 Customer Support</h3>
+                    <p class="feature-card__description">Your satisfaction is our priority. Our dedicated customer
+                        support team is available 24/7.</p>
+                    <a href="#" class="feature-card__link">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="faq__container">
+            <h2 class="faq__title">Frequently Asked Questions</h2>
+            <div class="faq__list">
+                <div class="faq__item">
+                    <button class="faq__question">
+                        <span>What is the free trial period?</span>
+                        <svg class="faq__icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <polyline points="18 15 12 9 6 15"></polyline>
+                        </svg>
+                    </button>
+                    <div class="faq__answer">
+                        <p>We offer a 7-day free trial for all new users. You can explore our full library during this
+                            period.</p>
+                    </div>
+                </div>
+                <div class="faq__item faq__item--active">
+                    <button class="faq__question">
+                        <span>How can I cancel my subscription?</span>
+                        <svg class="faq__icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <polyline points="18 15 12 9 6 15"></polyline>
+                        </svg>
+                    </button>
+                    <div class="faq__answer faq__answer--active">
+                        <p>You can cancel anytime through your account settings. If you cancel during your billing
+                            cycle, you will still have access until the end of that period.</p>
+                    </div>
+                </div>
+                <div class="faq__item">
+                    <button class="faq__question">
+                        <span>Can I watch on multiple devices?</span>
+                        <svg class="faq__icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <polyline points="18 15 12 9 6 15"></polyline>
+                        </svg>
+                    </button>
+                    <div class="faq__answer">
+                        <p>Yes! Depending on your plan, you can watch on 1 to 4 devices simultaneously.</p>
+                    </div>
+                </div>
+                <div class="faq__item">
+                    <button class="faq__question">
+                        <span>Is there a free trial available?</span>
+                        <svg class="faq__icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <polyline points="18 15 12 9 6 15"></polyline>
+                        </svg>
+                    </button>
+                    <div class="faq__answer">
+                        <p>Yes, we offer a 7-day free trial for all new subscribers.</p>
+                    </div>
+                </div>
+                <div class="faq__item">
+                    <button class="faq__question">
+                        <span>What types of content are available?</span>
+                        <svg class="faq__icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <polyline points="18 15 12 9 6 15"></polyline>
+                        </svg>
+                    </button>
+                    <div class="faq__answer">
+                        <p>We offer movies, TV shows, documentaries, and exclusive original content across all genres.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Film Strip -->
+    <section class="film-strip">
+        <div class="film-strip__container">
+            <div class="film-strip__top">
+                <div class="film-strip__perforation"></div>
+                <div class="film-strip__frames film-strip__frames--perspective">
+                    <div class="film-strip__frame"></div>
+                    <div class="film-strip__frame"></div>
+                    <div class="film-strip__frame"></div>
+                    <div class="film-strip__frame"></div>
+                    <div class="film-strip__frame"></div>
+                    <div class="film-strip__frame"></div>
+                    <div class="film-strip__frame"></div>
+                    <div class="film-strip__frame"></div>
+                </div>
+                <div class="film-strip__perforation"></div>
+            </div>
+            <div class="film-strip__bottom">
+                <div class="film-strip__perforation"></div>
+                <div class="film-strip__frames">
+                    <div class="film-strip__frame"></div>
+                    <div class="film-strip__frame"></div>
+                    <div class="film-strip__frame"></div>
+                    <div class="film-strip__frame"></div>
+                    <div class="film-strip__frame"></div>
+                    <div class="film-strip__frame"></div>
+                    <div class="film-strip__frame"></div>
+                    <div class="film-strip__frame"></div>
+                </div>
+                <div class="film-strip__perforation"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="newsletter__container">
+            <h2 class="newsletter__title">Newsletter Subscription</h2>
+            <p class="newsletter__description">Stay updated with the latest releases and exclusive offers!</p>
+            <div class="newsletter__form">
+                <input type="email" placeholder="Insert Your E-mail" class="newsletter__input">
+                <button class="newsletter__button">Subscribe</button>
+            </div>
+        </div>
+    </section>
+    <!-- Admin Panel -->
+    <section class="admin-panel" id="adminPanel" style="display: none;">
+        <div class="admin-panel__container">
+            <div class="admin-panel__header">
+                <h2 class="admin-panel__title">Admin Dashboard</h2>
+                <button class="admin-panel__logout" id="adminLogout">Logout</button>
             </div>
 
-        </div>
-    </section>
-    <section>
-        <h1>Frequently Asked Questions</h1>
-        <p>What is the free trial period?</p>
-        <p>How can I cancel my subscription?</p>
-        <p>Can I watch on multiple devices?</p>
-        <p>Is there a free trial available?</p>
-        <p>What types of content are available?</p>
-    </section>
-    <section>
-        <h1>Newsletter Subscription</h1>
-        <p>Stay updated with the latest releases and exclusive offers!</p>
-        <div>
-            <p>Insert Your E-mail</p>
-            <a href="">Subscribe</a>
+            <div class="admin-panel__tabs">
+                <button class="admin-tab active" data-tab="movies">Movies</button>
+                <button class="admin-tab" data-tab="users">Users</button>
+                <button class="admin-tab" data-tab="stats">Statistics</button>
+            </div>
 
+            <!-- Movies Tab -->
+            <div class="admin-tab-content active" id="tab-movies">
+                <div class="admin-panel__actions">
+                    <button class="admin-btn admin-btn--primary" id="addMovieBtn">Add Movie</button>
+                </div>
+                <div class="admin-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Genre</th>
+                                <th>Year</th>
+                                <th>Price</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="moviesTableBody">
+                            <!-- Movies will be rendered here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Users Tab -->
+            <div class="admin-tab-content" id="tab-users">
+                <div class="admin-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="usersTableBody">
+                            <!-- Users will be rendered here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Stats Tab -->
+            <div class="admin-tab-content" id="tab-stats">
+                <div class="admin-stats-grid">
+                    <div class="admin-stat-card">
+                        <div class="admin-stat-card__value" id="statUsers">0</div>
+                        <div class="admin-stat-card__label">Total Users</div>
+                    </div>
+                    <div class="admin-stat-card">
+                        <div class="admin-stat-card__value" id="statMovies">0</div>
+                        <div class="admin-stat-card__label">Total Movies</div>
+                    </div>
+                    <div class="admin-stat-card">
+                        <div class="admin-stat-card__value" id="statViews">1M+</div>
+                        <div class="admin-stat-card__label">Total Views</div>
+                    </div>
+                    <div class="admin-stat-card">
+                        <div class="admin-stat-card__value" id="statRevenue">$12,450</div>
+                        <div class="admin-stat-card__label">Revenue</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
-    <footer>
-        <div class="logo">
-            <img src="images/Vector.svg" alt="">
-            <p href="">CineWave</p>
+
+    <!-- Add Movie Modal -->
+    <div class="modal" id="addMovieModal">
+        <div class="modal__overlay"></div>
+        <div class="modal__content">
+            <button class="modal__close" id="closeAddMovie">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <h2 class="modal__title">Add New Movie</h2>
+            <form class="modal__form" id="addMovieForm">
+                <div class="form__group">
+                    <label class="form__label">Title</label>
+                    <input type="text" class="form__input" id="movieTitle" placeholder="Movie title" required>
+                </div>
+                <div class="form__group">
+                    <label class="form__label">Genre</label>
+                    <select class="form__input" id="movieGenre" style="cursor: pointer;">
+                        <option value="action">Action</option>
+                        <option value="comedy">Comedy</option>
+                        <option value="drama">Drama</option>
+                        <option value="horror">Horror</option>
+                        <option value="scifi">Sci-Fi</option>
+                        <option value="family">Family</option>
+                    </select>
+                </div>
+                <div class="form__group">
+                    <label class="form__label">Year</label>
+                    <input type="number" class="form__input" id="movieYear" placeholder="2024" required>
+                </div>
+                <div class="form__group">
+                    <label class="form__label">Duration</label>
+                    <input type="text" class="form__input" id="movieDuration" placeholder="1h 30m" required>
+                </div>
+                <div class="form__group">
+                    <label class="form__label">Price</label>
+                    <input type="text" class="form__input" id="moviePrice" placeholder="$9.99 or FREE" required>
+                </div>
+                <div class="form__group">
+                    <label class="form__label">Rating</label>
+                    <input type="number" step="0.1" min="0" max="10" class="form__input" id="movieRating"
+                        placeholder="8.5" required>
+                </div>
+                <button type="submit" class="form__button">Add Movie</button>
+            </form>
         </div>
-        <div>
-            <p>About Us</p>
-            <p>Movies</p>
-            <p>Subscription</p>
-            <p>FAQ</p>
-            <p>Contact Us</p>
-        </div>
-        <div>
-            <img src="images/Google Icon.png" alt="">
-            <img src="images/Facebook Icon.png" alt="">
-            <img src="images/LinkedIn Icon.png" alt="">
-            <img src="images/Twitter Icon.png" alt="">
-        </div>
-        <div>
-            <p>© 2024 CineWave. All Rights Reserved</p>
-            <p>Privacy Policy</p>
-            <p>Terms & Conditions</p>
+    </div>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__top">
+                <div class="logo">
+                    <svg class="logo__icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M4 4L20 12L4 20V4Z" />
+                    </svg>
+                    <span class="logo__text">CineWave</span>
+                </div>
+                <nav class="footer__nav">
+                    <a href="#" class="footer__link">About Us</a>
+                    <a href="#" class="footer__link">Movies</a>
+                    <a href="#" class="footer__link">Subscription</a>
+                    <a href="#" class="footer__link">FAQ</a>
+                    <a href="#" class="footer__link">Contact Us</a>
+                </nav>
+                <div class="footer__social">
+                    <a href="#" class="social__link">G</a>
+                    <a href="#" class="social__link social__link--facebook">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                        </svg>
+                    </a>
+                    <a href="#" class="social__link">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                                d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z">
+                            </path>
+                        </svg>
+                    </a>
+                    <a href="#" class="social__link">in</a>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p class="footer__copyright">© 2024 CineWave. All Rights Reserved</p>
+                <div class="footer__legal">
+                    <a href="#" class="footer__link">Privacy Policy</a>
+                    <a href="#" class="footer__link">Terms & Conditions</a>
+                </div>
+            </div>
         </div>
     </footer>
 
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal__overlay"></div>
+        <div class="modal__content">
+            <button class="modal__close" id="closeLogin">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <h2 class="modal__title">Login to Your Account</h2>
+            <p class="modal__subtitle">Enter your credentials to access CineWave</p>
+            <form class="modal__form" id="loginForm">
+                <div class="form__group">
+                    <label class="form__label">Email</label>
+                    <input type="email" class="form__input" id="loginEmail" placeholder="example@domain.com">
+                    <p class="form__error" id="loginEmailError">Please enter a valid email address</p>
+                </div>
+                <div class="form__group">
+                    <label class="form__label">Password</label>
+                    <input type="password" class="form__input" id="loginPassword" placeholder="••••••••">
+                    <p class="form__error" id="loginPasswordError">Password must be at least 8 characters</p>
+                </div>
+                <div class="form__options">
+                    <label class="form__checkbox">
+                        <input type="checkbox">
+                        <span>Remember me</span>
+                    </label>
+                    <a href="#" class="form__link">Forgot password?</a>
+                </div>
+                <button type="submit" class="form__button">Login</button>
+            </form>
+            <p class="modal__switch">
+                Don't have an account?
+                <button class="modal__switch-btn" id="switchToSignup">Sign Up</button>
+            </p>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div class="modal" id="signupModal">
+        <div class="modal__overlay"></div>
+        <div class="modal__content">
+            <button class="modal__close" id="closeSignup">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <h2 class="modal__title">Create Account</h2>
+            <p class="modal__subtitle">Join CineWave and start watching</p>
+            <form class="modal__form" id="signupForm">
+                <div class="form__group">
+                    <label class="form__label">Name</label>
+                    <input type="text" class="form__input" id="signupName" placeholder="Your name">
+                </div>
+                <div class="form__group">
+                    <label class="form__label">Email</label>
+                    <input type="email" class="form__input" id="signupEmail" placeholder="example@domain.com">
+                    <p class="form__error" id="signupEmailError">Please enter a valid email with a proper domain</p>
+                </div>
+                <div class="form__group">
+                    <label class="form__label">Password</label>
+                    <input type="password" class="form__input" id="signupPassword" placeholder="Minimum 8 characters">
+                    <p class="form__error" id="signupPasswordError">Password must be at least 8 characters</p>
+                </div>
+                <div class="form__group">
+                    <label class="form__label">Confirm Password</label>
+                    <input type="password" class="form__input" id="signupConfirmPassword" placeholder="Repeat password">
+                    <p class="form__error" id="signupConfirmError">Passwords do not match</p>
+                </div>
+                <div class="form__hint">
+                    <p>Admin: <strong>admin</strong> / <strong>admin</strong></p>
+                </div>
+                <label class="form__checkbox form__checkbox--terms">
+                    <input type="checkbox" id="signupTerms">
+                    <span>I agree to the <a href="#" class="form__link">Terms of Service</a> and <a href="#"
+                            class="form__link">Privacy Policy</a></span>
+                </label>
+                <p class="form__error" id="signupTermsError">You must accept the terms of service</p>
+                <button type="submit" class="form__button">Sign Up</button>
+            </form>
+            <p class="modal__switch">
+                Already have an account?
+                <button class="modal__switch-btn" id="switchToLogin">Login</button>
+            </p>
+        </div>
+    </div>
+    <!-- Rate Movie Modal -->
+    <div class="modal" id="rateMovieModal">
+        <div class="modal__overlay"></div>
+        <div class="modal__content">
+            <button class="modal__close" id="closeRateMovie">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <h2 class="modal__title">Rate this Movie</h2>
+            <p class="modal__subtitle" id="rateMovieTitle">Movie Title</p>
+
+            <div class="rating-stars" id="ratingStars">
+                <button class="star-btn" data-value="1">★</button>
+                <button class="star-btn" data-value="2">★</button>
+                <button class="star-btn" data-value="3">★</button>
+                <button class="star-btn" data-value="4">★</button>
+                <button class="star-btn" data-value="5">★</button>
+                <button class="star-btn" data-value="6">★</button>
+                <button class="star-btn" data-value="7">★</button>
+                <button class="star-btn" data-value="8">★</button>
+                <button class="star-btn" data-value="9">★</button>
+                <button class="star-btn" data-value="10">★</button>
+            </div>
+
+            <div class="rating-preview" id="ratingPreview">Select your rating</div>
+
+            <button class="form__button" id="submitRating" disabled>Submit Rating</button>
+        </div>
+    </div>
+
+    <script src="skript.js"></script>
 </body>
 
 </html>
