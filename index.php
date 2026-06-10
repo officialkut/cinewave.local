@@ -686,8 +686,10 @@
             <h2 class="newsletter__title">Newsletter Subscription</h2>
             <p class="newsletter__description">Stay updated with the latest releases and exclusive offers!</p>
             <div class="newsletter__form">
-                <input type="email" placeholder="Insert Your E-mail" class="newsletter__input">
-                <button class="newsletter__button">Subscribe</button>
+            <form class="newsletter__form" action="process.php?action=subscribe" method="POST">
+                <input type="email" name="email" placeholder="Insert Your E-mail" class="newsletter__input" required>
+                <button type="submit" class="newsletter__button">Subscribe</button>
+            </form>
             </div>
         </div>
     </section>
@@ -876,26 +878,30 @@
             </button>
             <h2 class="modal__title">Login to Your Account</h2>
             <p class="modal__subtitle">Enter your credentials to access CineWave</p>
-            <form class="modal__form" id="loginForm">
+            <form class="modal__form" id="loginForm" action="process.php?action=login" method="POST">
                 <div class="form__group">
                     <label class="form__label">Email</label>
-                    <input type="email" class="form__input" id="loginEmail" placeholder="example@domain.com">
+                    <input type="email" class="form__input" name="email" id="loginEmail"
+                        placeholder="example@domain.com" required>
                     <p class="form__error" id="loginEmailError">Please enter a valid email address</p>
                 </div>
                 <div class="form__group">
                     <label class="form__label">Password</label>
-                    <input type="password" class="form__input" id="loginPassword" placeholder="••••••••">
+                    <input type="password" class="form__input" name="password" id="loginPassword" placeholder="••••••••"
+                        required>
                     <p class="form__error" id="loginPasswordError">Password must be at least 8 characters</p>
                 </div>
                 <div class="form__options">
                     <label class="form__checkbox">
-                        <input type="checkbox">
+                        <input type="checkbox" name="remember" value="1">
                         <span>Remember me</span>
                     </label>
                     <a href="#" class="form__link">Forgot password?</a>
                 </div>
                 <button type="submit" class="form__button">Login</button>
             </form>
+
+
             <p class="modal__switch">
                 Don't have an account?
                 <button class="modal__switch-btn" id="switchToSignup">Sign Up</button>
@@ -947,33 +953,7 @@
                 <button type="submit" class="form__button">Sign Up</button>
             </form>
 
-            <form class="modal__form" id="loginForm" action="process.php?action=login" method="POST">
-                <div class="form__group">
-                    <label class="form__label">Email</label>
-                    <input type="email" class="form__input" name="email" id="loginEmail"
-                        placeholder="example@domain.com" required>
-                    <p class="form__error" id="loginEmailError">Please enter a valid email address</p>
-                </div>
-                <div class="form__group">
-                    <label class="form__label">Password</label>
-                    <input type="password" class="form__input" name="password" id="loginPassword" placeholder="••••••••"
-                        required>
-                    <p class="form__error" id="loginPasswordError">Password must be at least 8 characters</p>
-                </div>
-                <div class="form__options">
-                    <label class="form__checkbox">
-                        <input type="checkbox" name="remember" value="1">
-                        <span>Remember me</span>
-                    </label>
-                    <a href="#" class="form__link">Forgot password?</a>
-                </div>
-                <button type="submit" class="form__button">Login</button>
-            </form>
 
-            <form class="newsletter__form" action="process.php?action=subscribe" method="POST">
-                <input type="email" name="email" placeholder="Insert Your E-mail" class="newsletter__input" required>
-                <button type="submit" class="newsletter__button">Subscribe</button>
-            </form>
             <p class="modal__switch">
                 Already have an account?
                 <button class="modal__switch-btn" id="switchToLogin">Login</button>
