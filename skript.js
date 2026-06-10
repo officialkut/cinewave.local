@@ -566,71 +566,57 @@ function updateHeaderForUser() {
     }
 }
 
-document.getElementById('loginForm').addEventListener('submit', (e) => {
+
+// Обработка входа
+document.getElementById('loginForm').addEventListener('submit', async (e) => {
     e.preventDefault();
-    let isValid = true;
     
-    const email = document.getElementById('loginEmail').value.trim();
-    const password = document.getElementById('loginPassword').value;
+    const formData = new FormData(e.target);
+    const submitBtn = e.target.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
     
-    if (!email) {
-        showError('loginEmail', 'loginEmailError');
-        isValid = false;
-    } else {
-        clearError('loginEmail', 'loginEmailError');
-    }
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Logging in...';
     
-    if (!validatePassword(password)) {
-        showError('loginPassword', 'loginPasswordError');
-        isValid = false;
-    } else {
-        clearError('loginPassword', 'loginPasswordError');
-    }
-    
-    if (isValid) {
-        // Проверка на админа (admin / admin)
-        if (email === 'admin' && password === 'admin') {
-            const adminUser = {
-                id: 1,
-                name: 'Admin',
-                email: 'admin@cinewave.com',
-                role: 'admin'
-            };
-            saveCurrentUser(adminUser);
-            alert('Welcome, Admin!');
-            closeModal(loginModal);
-            updateHeaderForUser();
-            return;
-        }
+    try {
+        const response = await fetch('process.php?action=login', {
+            method: 'POST',
+            body: formData
+        });
         
-        // Обычный пользователь — поиск в localStorage
-        const users = getUsers();
-        const user = users.find(u => u.email === email && u.password === password);
+        const result = await response.json();
         
-        if (user) {
-            saveCurrentUser(user);
-            alert(`Welcome back, ${user.name}!`);
+        if (result.success) {
+            alert('Welcome, ' + result.data.user.name + '!');
             closeModal(loginModal);
+            e.target.reset();
+            
+            // Сохраняем пользователя
+            localStorage.setItem('cinewave_current_user', JSON.stringify(result.data.user));
             updateHeaderForUser();
         } else {
-            alert('Invalid email or password');
+            alert(result.message);
         }
+    } catch (error) {
+        alert('Ошибка соединения с сервером');
+    } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
     }
 });
 
-document.getElementById('signupForm').addEventListener('submit', (e) => {
+document.getElementById('signupForm').addEventListener('submit', async (e) => {
     e.preventDefault();
+    
+    const formData = new FormData(e.target);
+    const submitBtn = e.target.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    
+    // Локальная валидация перед отправкой
     let isValid = true;
-    
-    const name = document.getElementById('signupName').value;
-    const email = document.getElementById('signupEmail').value;
-    const password = document.getElementById('signupPassword').value;
-    const confirmPassword = document.getElementById('signupConfirmPassword').value;
-    const terms = document.getElementById('signupTerms').checked;
-    
-    if (!name.trim()) {
-        isValid = false;
-    }
+    const email = formData.get('email');
+    const password = formData.get('password');
+    const confirmPassword = formData.get('confirm_password');
     
     if (!validateEmail(email)) {
         showError('signupEmail', 'signupEmailError');
@@ -653,37 +639,85 @@ document.getElementById('signupForm').addEventListener('submit', (e) => {
         clearError('signupConfirmPassword', 'signupConfirmError');
     }
     
-    if (!terms) {
-        document.getElementById('signupTermsError').classList.add('visible');
-        isValid = false;
-    } else {
-        document.getElementById('signupTermsError').classList.remove('visible');
-    }
+    if (!isValid) return;
     
-    if (isValid) {
-        const users = getUsers();
+    // Отправка на сервер
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Registering...';
+    
+    try {
+        const response = await fetch('process.php?action=register', {
+            method: 'POST',
+            body: formData
+        });
         
-        if (users.find(u => u.email === email)) {
-            alert('Email already registered');
-            return;
+        const result = await response.json();
+        
+        if (result.success) {
+            alert(result.message);
+            closeModal(signupModal);
+            e.target.reset();
+        } else {
+            // Показываем ошибки с сервера
+            if (result.errors) {
+                Object.keys(result.errors).forEach(field => {
+                    const errorId = field + 'Error';
+                    const inputId = field === 'confirm_password' ? 'signupConfirmPassword' : 
+                                    field === 'terms' ? 'signupTermsError' : 'signup' + capitalize(field);
+                    
+                    if (document.getElementById(errorId)) {
+                        document.getElementById(errorId).textContent = result.errors[field];
+                        document.getElementById(errorId).classList.add('visible');
+                    }
+                });
+            } else {
+                alert(result.message);
+            }
         }
-        
-        // Все зарегистрированные пользователи — обычные (role: 'user')
-        const newUser = {
-            id: Date.now(),
-            name,
-            email,
-            password,
-            role: 'user'
-        };
-        
-        users.push(newUser);
-        localStorage.setItem(STORAGE_KEYS.USERS, JSON.stringify(users));
-        
-        alert('Registration successful! You can now login.');
-        closeModal(signupModal);
+    } catch (error) {
+        alert('Ошибка соединения с сервером');
+    } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
     }
 });
+
+document.querySelector('.newsletter__form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const formData = new FormData(e.target);
+    const submitBtn = e.target.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Subscribing...';
+    
+    try {
+        const response = await fetch('process.php?action=subscribe', {
+            method: 'POST',
+            body: formData
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+            alert(result.message);
+            e.target.reset();
+        } else {
+            alert(result.message);
+        }
+    } catch (error) {
+        alert('Ошибка соединения с сервером');
+    } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+    }
+});
+
+// Вспомогательная функция
+function capitalize(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+}
 // Функция для обновления отображения фильмов
 function renderMovies() {
     const movies = getMovies();
