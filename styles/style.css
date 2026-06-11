@@ -1351,6 +1351,7 @@ a:hover {
 }
 
 /* Modal */
+
 .modal {
     position: fixed;
     inset: 0;
@@ -1907,7 +1908,7 @@ a:hover {
 }
 
 .password-wrapper .form__input {
-    padding-right: 205px; /* Место для иконки глаза */
+    padding-right: 48px;
 }
 
 .password-toggle {
@@ -1938,4 +1939,246 @@ a:hover {
 .password-toggle svg {
     width: 20px;
     height: 20px;
+}
+/* ============ MEDIA QUERIES ============ */
+
+@media (max-width: 768px) {
+    /* Модальные окна на мобильных */
+    .modal {
+        padding: 0 !important;
+        align-items: flex-start !important;
+        overflow-y: auto;
+    }
+    
+    .modal__content {
+        max-width: 100% !important;
+        max-height: 100vh !important;
+        border-radius: 0 !important;
+        margin: 0 !important;
+        min-height: 100vh;
+        padding: 24px 16px !important;
+    }
+    
+    .modal__close {
+        top: 16px !important;
+        right: 16px !important;
+    }
+    
+    /* Header на мобильных */
+    .header__nav {
+        display: none;
+    }
+    
+    .header__actions {
+        gap: 8px;
+    }
+    
+    .header__login {
+        padding: 8px 16px;
+        font-size: 13px;
+    }
+    
+    .header__signup {
+        padding: 8px 16px;
+        font-size: 13px;
+    }
+    
+    /* Hero Slider на мобильных */
+    .slider__side {
+        display: none !important;
+    }
+    
+    .slider__main {
+        height: 300px !important;
+    }
+    
+    .slide__title {
+        font-size: 28px !important;
+    }
+    
+    .slide {
+        padding: 24px 16px !important;
+    }
+    
+    /* Stats на мобильных */
+    .stats__container {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    /* CTA Section */
+    .cta__search {
+        flex-direction: column;
+    }
+    
+    .cta__select,
+    .cta__button {
+        width: 100%;
+    }
+    
+    /* Movie Cards */
+    .trending__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+    
+    /* Categories */
+    .categories__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Pricing */
+    .pricing__cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .pricing-card--featured {
+        transform: none !important;
+    }
+    
+    /* Features */
+    .features__grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Admin Panel */
+    .admin-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .admin-panel__header {
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-start;
+    }
+    
+    .admin-table {
+        overflow-x: auto;
+    }
+    
+    /* Footer */
+    .footer__top {
+        flex-direction: column;
+        text-align: center;
+        gap: 24px;
+    }
+    
+    .footer__nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .footer__bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Очень маленькие экраны */
+    .slide__title {
+        font-size: 24px !important;
+    }
+    
+    .trending__grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .categories__grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .admin-stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Кнопки на маленьких экранах */
+    .slide__buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .slide__button {
+        width: 100%;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    /* Планшеты */
+    .trending__grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .features__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .admin-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+/* ============ PRICING ADAPTIVE ============ */
+
+@media (max-width: 1024px) {
+    .pricing__cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+    
+    .pricing-card--featured {
+        transform: none !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .pricing__cards {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    .pricing-card {
+        padding: 24px !important;
+    }
+    
+    .pricing-card__title {
+        font-size: 18px !important;
+    }
+    
+    .price-amount {
+        font-size: 28px !important;
+    }
+    
+    .pricing-card__features {
+        font-size: 13px;
+    }
+    
+    .feature {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .pricing__cards {
+        max-width: 100%;
+    }
+    
+    .pricing-card {
+        padding: 20px 16px !important;
+    }
+    
+    .pricing-card__title {
+        font-size: 16px !important;
+    }
+    
+    .price-amount {
+        font-size: 24px !important;
+    }
+    
+    .pricing-card__button {
+        padding: 10px !important;
+        font-size: 13px !important;
+    }
 }

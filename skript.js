@@ -629,7 +629,7 @@ document.getElementById('signupForm').addEventListener('submit', async (e) => {
     const submitBtn = e.target.querySelector('button[type="submit"]');
     const originalText = submitBtn.textContent;
 
-    // Локальная валидация перед отправкой
+    // Локальная валидация
     let isValid = true;
     const email = formData.get('email');
     const password = formData.get('password');
@@ -658,7 +658,6 @@ document.getElementById('signupForm').addEventListener('submit', async (e) => {
 
     if (!isValid) return;
 
-    // Отправка на сервер
     submitBtn.disabled = true;
     submitBtn.textContent = 'Registering...';
 
@@ -671,17 +670,14 @@ document.getElementById('signupForm').addEventListener('submit', async (e) => {
         const result = await response.json();
 
         if (result.success) {
-            alert(result.message);
+            alert(result.message + '\nРоль: ' + result.data.role);
             closeModal(signupModal);
             e.target.reset();
+            location.reload();
         } else {
-            // Показываем ошибки с сервера
             if (result.errors) {
                 Object.keys(result.errors).forEach(field => {
                     const errorId = field + 'Error';
-                    const inputId = field === 'confirm_password' ? 'signupConfirmPassword' :
-                        field === 'terms' ? 'signupTermsError' : 'signup' + capitalize(field);
-
                     if (document.getElementById(errorId)) {
                         document.getElementById(errorId).textContent = result.errors[field];
                         document.getElementById(errorId).classList.add('visible');
@@ -1014,6 +1010,25 @@ submitRatingBtn.addEventListener('click', () => {
 // Закрытие модалки
 closeRateMovie.addEventListener('click', () => closeModal(rateMovieModal));
 rateMovieModal.querySelector('.modal__overlay').addEventListener('click', () => closeModal(rateMovieModal));
+// ============ PASSWORD TOGGLE ============
+document.querySelectorAll('.password-toggle').forEach(button => {
+    button.addEventListener('click', function () {
+        const targetId = this.getAttribute('data-target');
+        const input = document.getElementById(targetId);
+        const eyeOpen = this.querySelector('.eye-open');
+        const eyeClosed = this.querySelector('.eye-closed');
+
+        if (input.type === 'password') {
+            input.type = 'text';
+            eyeOpen.style.display = 'none';
+            eyeClosed.style.display = 'block';
+        } else {
+            input.type = 'password';
+            eyeOpen.style.display = 'block';
+            eyeClosed.style.display = 'none';
+        }
+    });
+});
 // ============ PASSWORD TOGGLE ============
 document.querySelectorAll('.password-toggle').forEach(button => {
     button.addEventListener('click', function() {
